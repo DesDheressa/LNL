@@ -11,8 +11,8 @@ $RemoteCred = Get-Credential
 Import-Module dbatools
 
 #connect to the instance. Changed -sqlCredential to credential
-Connect-dbainstance -sqlinstance CSHSTESTDB3_1 -credential $RemoteCred
-$target = Connect-dbainstance -sqlinstance CSHSTESTDB3_1 -credential $RemoteCred
+Connect-dbainstance -sqlinstance CVTC14 -credential $RemoteCred
+$target = Connect-dbainstance -sqlinstance CVTC14 -credential $RemoteCred
 Get-DbaAgDatabase -SqlInstance $target
 
 # 'sqlCredential' is not supported
@@ -39,3 +39,6 @@ Exit-PSSession
 
 # Remove the session from the originating host
 Remove-PSSession -Session $Session
+
+# DBHDS stuff
+Get-DbaAgentJobCategory -SqlInstance CVTC14
